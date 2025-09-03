@@ -1,0 +1,13 @@
+{
+	"darkTrayIcon": false,
+	"openLabel": "Ouvert",
+	"quitLabel": "Quitter",
+	"runInBackground": true,
+	"winBounds": {
+		"x": -8,
+		"y": -8,
+		"width": 1536,
+		"height": 824
+	},
+	"isMaximized": false
+}
