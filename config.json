@@ -1,6 +1,13 @@
 {
-  "tasks": [
-    {"title": "Tâche test 1"},
-    {"title": "Tâche test 2"}
-  ]
+	"darkTrayIcon": false,
+	"openLabel": "Ouvert",
+	"quitLabel": "Quitter",
+	"runInBackground": true,
+	"winBounds": {
+		"x": -8,
+		"y": -8,
+		"width": 1536,
+		"height": 824
+	},
+	"isMaximized": false
 }
