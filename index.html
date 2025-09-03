@@ -4,26 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WeekToDo Sync PWA</title>
-
-  <!-- Lien vers le manifest -->
   <link rel="manifest" href="manifest.json" />
-
-  <!-- Couleur de la barre du haut -->
   <meta name="theme-color" content="#4CAF50" />
-
-  <!-- Icône par défaut -->
-  <link rel="icon" href="icon.png" type="image/png" />
 </head>
 <body>
   <h1>WeekToDo Sync PWA</h1>
-  <p>Ta PWA est en place 🎉</p>
+  <div id="tasks">Chargement des tâches...</div>
 
   <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js")
-        .then(() => console.log("Service Worker enregistré ✅"))
-        .catch(err => console.error("Erreur Service Worker ❌", err));
+    const configUrl = "https://drive.google.com/uc?export=download&id=1aSPhR37K3c0h_PsSchAFi9NE5MsCyvKf";
+
+    async function loadTasks() {
+      try {
+        const response = await fetch(configUrl);
+        if (!response.ok) throw new Error("Impossible de charger config.json");
+        const data = await response.json();
+
+        const container = document.getElementById('tasks');
+        container.innerHTML = "";
+
+        // Exemple simple : afficher toutes les tâches principales
+        if (data.tasks && data.tasks.length > 0) {
+          data.tasks.forEach(task => {
+            const div = document.createElement("div");
+            div.style.border = "1px solid #ccc";
+            div.style.padding = "8px";
+            div.style.margin = "4px 0";
+            div.textContent = task.title || "Sans titre";
+            container.appendChild(div);
+          });
+        } else {
+          container.textContent = "Aucune tâche trouvée dans config.json";
+        }
+      } catch (err) {
+        document.getElementById('tasks').textContent = "Erreur : " + err.message;
+      }
     }
+
+    loadTasks();
   </script>
 </body>
 </html>
