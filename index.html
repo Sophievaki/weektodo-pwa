@@ -12,8 +12,7 @@
   <div id="tasks">Chargement des tâches...</div>
 
   <script>
-    const configUrl = "const configUrl = "config.json"; // fichier dans le repo
-";
+    const configUrl = "config.json"; // fichier directement dans le repo
 
     async function loadTasks() {
       try {
@@ -24,7 +23,7 @@
         const container = document.getElementById('tasks');
         container.innerHTML = "";
 
-        // Exemple simple : afficher toutes les tâches principales
+        // Affichage simple : toutes les tâches principales
         if (data.tasks && data.tasks.length > 0) {
           data.tasks.forEach(task => {
             const div = document.createElement("div");
@@ -38,11 +37,5 @@
           container.textContent = "Aucune tâche trouvée dans config.json";
         }
       } catch (err) {
-        document.getElementById('tasks').textContent = "Erreur : " + err.message;
-      }
-    }
 
-    loadTasks();
-  </script>
-</body>
 </html>
