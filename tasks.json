@@ -1,0 +1,232 @@
+{
+  "tasks": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      {
+        "text": "🛏️Chambre",
+        "checked": true,
+        "listId": "20250824",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": "1755954318611"
+      },
+      {
+        "text": "🌊Aspirer/Laver",
+        "checked": true,
+        "listId": "20250824",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": null
+      },
+      {
+        "text": "🧣Changer serviettes & paniers",
+        "checked": true,
+        "listId": "20250824",
+        "desc": "",
+        "subTaskList": [
+          {
+            "text": "Panier chambre vaki",
+            "checked": false,
+            "editing": false
+          },
+          {
+            "text": "Serviette de bain",
+            "checked": true,
+            "editing": false
+          },
+          {
+            "text": "torchons cuisine & WC",
+            "checked": true,
+            "editing": false
+          },
+          {
+            "text": "couette salon Väki",
+            "checked": true,
+            "editing": false
+          },
+          {
+            "text": "Tourner ses jouets",
+            "checked": true,
+            "editing": false
+          }
+        ],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": "1755954563319"
+      }
+    ],
+    [
+      {
+        "text": "test",
+        "checked": false,
+        "listId": "20250824T1336014",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": null
+      },
+      {
+        "text": "test 2",
+        "checked": false,
+        "listId": "20250824T1336014",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": null
+      }
+    ],
+    [
+      {
+        "text": "✍Création de contenu",
+        "checked": true,
+        "listId": "20250825",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": "1755955160109"
+      }
+    ],
+    [
+      {
+        "text": "🚽WC",
+        "checked": true,
+        "listId": "20250826",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": null
+      },
+      {
+        "text": "🔭Observatoire des Citoyens",
+        "checked": true,
+        "listId": "20250826",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": "1755954717231"
+      }
+    ],
+    [],
+    [
+      {
+        "text": "⛲Evier",
+        "checked": true,
+        "listId": "20250828",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": "1755954989353"
+      }
+    ],
+    [
+      {
+        "text": "🧹Poussière",
+        "checked": true,
+        "listId": "20250829",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": null
+      }
+    ],
+    [
+      {
+        "text": "smartbox pour 2",
+        "checked": false,
+        "listId": "20250829T1313503",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": null
+      }
+    ],
+    [
+      {
+        "text": "soin Visage",
+        "checked": true,
+        "listId": "20250830",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": "1755954146227"
+      },
+      {
+        "text": "🧖‍♀️soin Visage",
+        "checked": true,
+        "listId": "20250830",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": null
+      },
+      {
+        "text": "🌊Aspirer/Laver",
+        "checked": true,
+        "listId": "20250830",
+        "desc": "",
+        "subTaskList": [],
+        "color": "none",
+        "priority": 0,
+        "tags": [],
+        "time
+﻿
