@@ -1,41 +1,37 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WeekToDo Sync PWA</title>
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#4CAF50" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f9f9f9;
-      color: #333;
-    }
-    h1 {
-      color: #4CAF50;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-    .task {
-      border: 1px solid #ccc;
-      padding: 8px;
-      margin: 4px 0;
-      border-radius: 4px;
-      background: #fff;
-    }
-  </style>
-</head>
-<body>
-  <h1>WeekToDo Sync PWA</h1>
-  <div id="tasks">Chargement des tâches...</div>
+<script>
+  const configUrl = "tasks.json"; // ton JSON déjà en ligne
 
-  <script>
-    const configUrl = "tasks.json";
+  async function loadTasks() {
+    try {
+      const response = await fetch(configUrl);
+      if (!response.ok) throw new Error("Impossible de charger tasks.json");
+      const data = await response.json();
 
-    async function loadTasks() {
-      try {
-        const response = await fetch(configUrl);
-        if (!response.ok) throw new Error("Impossible de charger tasks.json");
-        const data = await respons
+      const container = document.getElementById('tasks');
+      container.innerHTML = "";
+
+      // data est un tableau de tableaux
+      let found = false;
+      data.forEach(group => {
+        group.forEach(task => {
+          found = true;
+          const div = document.createElement("div");
+          div.style.border = "1px solid #ccc";
+          div.style.padding = "8px";
+          div.style.margin = "4px 0";
+          div.textContent = task.text || "Sans titre";
+          container.appendChild(div);
+        });
+      });
+
+      if (!found) {
+        container.textContent = "Aucune tâche trouvée dans tasks.json";
+      }
+
+    } catch (err) {
+      document.getElementById('tasks').textContent = "Erreur : " + err.message;
+    }
+  }
+
+  loadTasks();
+</script>
