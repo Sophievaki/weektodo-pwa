@@ -41,31 +41,11 @@
         "listId": "20250824",
         "desc": "",
         "subTaskList": [
-          {
-            "text": "Panier chambre vaki",
-            "checked": false,
-            "editing": false
-          },
-          {
-            "text": "Serviette de bain",
-            "checked": true,
-            "editing": false
-          },
-          {
-            "text": "torchons cuisine & WC",
-            "checked": true,
-            "editing": false
-          },
-          {
-            "text": "couette salon Väki",
-            "checked": true,
-            "editing": false
-          },
-          {
-            "text": "Tourner ses jouets",
-            "checked": true,
-            "editing": false
-          }
+          { "text": "Panier chambre vaki", "checked": false, "editing": false },
+          { "text": "Serviette de bain", "checked": true, "editing": false },
+          { "text": "torchons cuisine & WC", "checked": true, "editing": false },
+          { "text": "couette salon Väki", "checked": true, "editing": false },
+          { "text": "Tourner ses jouets", "checked": true, "editing": false }
         ],
         "color": "none",
         "priority": 0,
@@ -228,5 +208,10 @@
         "color": "none",
         "priority": 0,
         "tags": [],
-        "time
-﻿
+        "time": null,
+        "alarm": false,
+        "repeatingEvent": null
+      }
+    ]
+  ]
+}
