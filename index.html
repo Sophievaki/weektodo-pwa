@@ -1,37 +1,46 @@
-<script>
-  const configUrl = "tasks.json"; // ton JSON déjà en ligne
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WeekToDo Sync PWA</title>
+</head>
+<body>
+  <h1>WeekToDo Sync PWA</h1>
+  <div id="tasks">Chargement des tâches...</div>
 
-  async function loadTasks() {
-    try {
-      const response = await fetch(configUrl);
-      if (!response.ok) throw new Error("Impossible de charger tasks.json");
-      const data = await response.json();
+  <script>
+    const configUrl = "tasks.json"; // ton JSON déjà en ligne
 
-      const container = document.getElementById('tasks');
-      container.innerHTML = "";
+    async function loadTasks() {
+      try {
+        const response = await fetch(configUrl);
+        if (!response.ok) throw new Error("Impossible de charger tasks.json");
+        const data = await response.json();
 
-      // data est un tableau de tableaux
-      let found = false;
-      data.forEach(group => {
-        group.forEach(task => {
-          found = true;
-          const div = document.createElement("div");
-          div.style.border = "1px solid #ccc";
-          div.style.padding = "8px";
-          div.style.margin = "4px 0";
-          div.textContent = task.text || "Sans titre";
-          container.appendChild(div);
-        });
-      });
+        const container = document.getElementById('tasks');
+        container.innerHTML = "";
 
-      if (!found) {
-        container.textContent = "Aucune tâche trouvée dans tasks.json";
+        if (Array.isArray(data)) {
+          // Cas 1 : simple tableau d'objets
+          data.forEach(task => {
+            const div = document.createElement("div");
+            div.style.border = "1px solid #ccc";
+            div.style.padding = "8px";
+            div.style.margin = "4px 0";
+            div.textContent = task.text || "Sans titre";
+            container.appendChild(div);
+          });
+        } else {
+          container.textContent = "Format JSON non reconnu";
+        }
+
+      } catch (err) {
+        document.getElementById('tasks').textContent = "Erreur : " + err.message;
       }
-
-    } catch (err) {
-      document.getElementById('tasks').textContent = "Erreur : " + err.message;
     }
-  }
 
-  loadTasks();
-</script>
+    loadTasks();
+  </script>
+</body>
+</html>
