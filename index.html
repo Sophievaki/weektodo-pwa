@@ -1,56 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WeekToDo Sync PWA</title>
-  <link rel="manifest" href="manifest.json" />
-  <meta name="theme-color" content="#4CAF50" />
+<meta charset="UTF-8">
+<title>WeekToDo</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  h2 { margin-top: 20px; color: #333; }
+  .task { border: 1px solid #ccc; padding: 8px; margin: 4px 0; border-radius: 4px; }
+</style>
 </head>
 <body>
-  <h1>WeekToDo Sync PWA</h1>
-  <div id="tasks">Chargement des tâches...</div>
+<h1>WeekToDo Sync PWA</h1>
+<div id="tasks"></div>
 
-  <script>
-    const configUrl = "tasks.json"; // ton JSON déjà en ligne
+<script>
+const configUrl = "tasks.json"; // ton JSON déjà en ligne ou en local
 
-    async function loadTasks() {
-      try {
-        const response = await fetch(configUrl);
-        if (!response.ok) throw new Error("Impossible de charger tasks.json");
-        const data = await response.json();
+async function loadTasks() {
+  try {
+    const response = await fetch(configUrl);
+    if (!response.ok) throw new Error("Impossible de charger tasks.json");
+    const data = await response.json();
 
-        const container = document.getElementById('tasks');
-        container.innerHTML = "";
+    const container = document.getElementById('tasks');
+    container.innerHTML = "";
 
-        // 🔹 maintenant on va chercher data.tasks
-        let found = false;
-        if (data.tasks && Array.isArray(data.tasks)) {
-          data.tasks.forEach(group => {
-            if (Array.isArray(group)) {
-              group.forEach(task => {
-                found = true;
-                const div = document.createElement("div");
-                div.style.border = "1px solid #ccc";
-                div.style.padding = "8px";
-                div.style.margin = "4px 0";
-                div.textContent = task.text || "Sans titre";
-                container.appendChild(div);
-              });
-            }
-          });
-        }
+    // Parcours des jours ou sections
+    for (const section in data) {
+      const tasks = data[section];
+      const title = document.createElement("h2");
+      title.textContent = section;
+      container.appendChild(title);
 
-        if (!found) {
-          container.textContent = "Aucune tâche trouvée dans tasks.json";
-        }
-
-      } catch (err) {
-        document.getElementById('tasks').textContent = "Erreur : " + err.message;
+      if (tasks.length === 0) {
+        const empty = document.createElement("div");
+        empty.textContent = "Aucune tâche";
+        empty.className = "task";
+        container.appendChild(empty);
+      } else {
+        tasks.forEach(task => {
+          const div = document.createElement("div");
+          div.textContent = task.text || "Sans titre";
+          div.className = "task";
+          container.appendChild(div);
+        });
       }
     }
+  } catch (err) {
+    document.getElementById('tasks').textContent = "Erreur : " + err.message;
+  }
+}
 
-    loadTasks();
-  </script>
+loadTasks();
+</script>
 </body>
 </html>
