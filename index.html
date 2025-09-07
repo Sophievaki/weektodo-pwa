@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WeekToDo Sync PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#4CAF50" />
 </head>
 <body>
   <h1>WeekToDo Sync PWA</h1>
@@ -21,18 +23,26 @@
         const container = document.getElementById('tasks');
         container.innerHTML = "";
 
-        if (Array.isArray(data)) {
-          // Cas 1 : simple tableau d'objets
-          data.forEach(task => {
-            const div = document.createElement("div");
-            div.style.border = "1px solid #ccc";
-            div.style.padding = "8px";
-            div.style.margin = "4px 0";
-            div.textContent = task.text || "Sans titre";
-            container.appendChild(div);
+        // 🔹 maintenant on va chercher data.tasks
+        let found = false;
+        if (data.tasks && Array.isArray(data.tasks)) {
+          data.tasks.forEach(group => {
+            if (Array.isArray(group)) {
+              group.forEach(task => {
+                found = true;
+                const div = document.createElement("div");
+                div.style.border = "1px solid #ccc";
+                div.style.padding = "8px";
+                div.style.margin = "4px 0";
+                div.textContent = task.text || "Sans titre";
+                container.appendChild(div);
+              });
+            }
           });
-        } else {
-          container.textContent = "Format JSON non reconnu";
+        }
+
+        if (!found) {
+          container.textContent = "Aucune tâche trouvée dans tasks.json";
         }
 
       } catch (err) {
